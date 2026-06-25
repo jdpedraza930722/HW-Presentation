@@ -80,7 +80,14 @@ const translations = {
     slide8_branch2: "Refacciones",
     slide8_branch3: "Taller",
     slide8_chat: "¿Pantalla de scooter? Sí hay stock ($250). ¿Preparo su pedido?",
-    slide8_time: "Prom. 11s"
+    slide8_time: "Prom. 11s",
+    slide9_watermark: "10",
+    slide9_title: "El Futuro Integrado - Super-App",
+    slide9_app_title: "Walito",
+    slide9_push_title: "Revisión de frenos",
+    slide9_push_desc: "Agenda con 10% de descuento",
+    slide9_app_btn: "Reservar Cita",
+    slide9_erp_status: "Agenda Bloqueada"
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -163,7 +170,14 @@ const translations = {
     slide8_branch2: "Parts",
     slide8_branch3: "Workshop",
     slide8_chat: "Scooter screen? In stock ($250). Prepare order?",
-    slide8_time: "Avg 11s"
+    slide8_time: "Avg 11s",
+    slide9_watermark: "10",
+    slide9_title: "The Integrated Future - Super-App",
+    slide9_app_title: "Walito",
+    slide9_push_title: "Brake inspection",
+    slide9_push_desc: "Book with 10% discount",
+    slide9_app_btn: "Book Appointment",
+    slide9_erp_status: "Agenda Locked"
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -246,6 +260,13 @@ const translations = {
     slide8_branch2: "配件",
     slide8_branch3: "车间",
     slide8_chat: "滑板车屏幕？有现货（＄250）。帮您下单吗？",
-    slide8_time: "平均 11秒"
+    slide8_time: "平均 11秒",
+    slide9_watermark: "十",
+    slide9_title: "整合的未来 - 超级应用",
+    slide9_app_title: "Walito",
+    slide9_push_title: "刹车检查",
+    slide9_push_desc: "预约享九折优惠",
+    slide9_app_btn: "预约服务",
+    slide9_erp_status: "日程已锁定"
   }
 };
