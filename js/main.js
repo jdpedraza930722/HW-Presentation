@@ -91,79 +91,108 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Inicializar Reveal.js PRIMERO
+  // 3. Inicializar Reveal.js y ESPERAR a que termine antes de conectar multiplex
   Reveal.initialize({
-    // hash solo en master; en clientes lo desactivamos para evitar
-    // eventos extra de navegación que rompan la sincronización
     hash: isMaster,
-    // Configuración de UX según guidelines
     controls: isMaster,
     keyboard: isMaster,
-    touch: false,  // desactivado para todos — el cliente no debe poder navegar
-    // Configuración responsiva para que ocupe toda la pantalla y no se vea borroso
+    touch: false,
     width: "100%",
     height: "100%",
     margin: 0.05,
     minScale: 1,
     maxScale: 1,
     plugins: [ RevealNotes ],
-    
-    // Configuración de Multiplexing
     multiplex: {
-      // Token secreto para el master. Para clientes debe ser null.
       secret: isMaster ? '42c84700044e4daba56236eecc78faf8' : null, 
-      id: 'bdb2e4378ab5102f37916662d7f7d1da0698a0f95cb3c39e50e7ad4d4a2a9201', // Obtenido de railway.app
+      id: 'bdb2e4378ab5102f37916662d7f7d1da0698a0f95cb3c39e50e7ad4d4a2a9201',
       url: 'https://multiplex.up.railway.app/'
     }
-  });
+  }).then(() => {
+    // Reveal.js está 100% listo. Ahora conectar multiplex.
+    console.log('[Multiplex] Reveal ready. Role:', isMaster ? 'MASTER' : 'CLIENT');
 
-  // 4. Helper para cargar scripts del Multiplex de manera dinámica
-  const loadScript = (src) => {
-    return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = src;
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
+    var multiplex = Reveal.getConfig().multiplex;
+    var socket = io.connect(multiplex.url);
+
+    socket.on('connect', () => {
+      console.log('[Multiplex] Socket connected!');
     });
-  };
 
-  // 5. Socket.io ya está cargado en el <head> de forma síncrona.
-  //    Solo cargamos master.js o client.js según el rol.
-  const roleScript = isMaster
-    ? 'https://multiplex.up.railway.app/master.js'
-    : 'https://multiplex.up.railway.app/client.js';
+    if (isMaster) {
+      // === MASTER: enviar estado en cada cambio ===
+      var lastSentH = -1;
+      var lastSentV = -1;
+      var lastSentF = -1;
 
-  loadScript(roleScript).catch(err => {
-    console.warn('Fallo al cargar Multiplex role script:', err);
-  });
+      function postState(evt) {
+        var state = Reveal.getState();
+        // Debounce: no enviar si el estado es idéntico al último enviado
+        if (state.indexh === lastSentH && state.indexv === lastSentV && state.indexf === lastSentF) {
+          console.log('[Master] Skipped duplicate state:', state.indexh);
+          return;
+        }
+        lastSentH = state.indexh;
+        lastSentV = state.indexv;
+        lastSentF = state.indexf;
 
-  // 6. Inicializar gráfica en TODOS los dispositivos (para que se vea en móvil).
-  //    El re-init en slidechanged SOLO ocurre en el maestro para no romper
-  //    el listener del socket en los clientes.
-  setTimeout(() => {
+        var messageData = {
+          state: state,
+          secret: multiplex.secret,
+          socketId: multiplex.id,
+          content: (evt || {}).content
+        };
+        socket.emit('multiplex-statechanged', messageData);
+        console.log('[Master] Sent state:', state.indexh);
+      }
+
+      Reveal.on('slidechanged', postState);
+      Reveal.on('fragmentshown', postState);
+      Reveal.on('fragmenthidden', postState);
+
+      // Enviar estado inicial
+      postState();
+
+      // Re-animar gráfica al volver a su slide
+      Reveal.on('slidechanged', event => {
+        try {
+          if (event.currentSlide.querySelector('#scissorsChart')) {
+            if (scissorsChart) scissorsChart.destroy();
+            initScissorsChart();
+            updateChartLanguage(lang);
+          }
+        } catch(e) {
+          console.warn('Chart slidechanged error:', e);
+        }
+      });
+
+    } else {
+      // === CLIENT: recibir estado del master ===
+      socket.on(multiplex.id, function(message) {
+        if (message.socketId !== multiplex.id) return;
+        if (message.state) {
+          // Solo aplicar si el slide es diferente al actual
+          var currentState = Reveal.getState();
+          if (message.state.indexh !== currentState.indexh || 
+              message.state.indexv !== currentState.indexv ||
+              message.state.indexf !== currentState.indexf) {
+            console.log('[Client] Moving to slide:', message.state.indexh, '(was:', currentState.indexh, ')');
+            Reveal.setState(message.state);
+          } else {
+            console.log('[Client] Already on slide:', message.state.indexh, '- skipping');
+          }
+        }
+      });
+    }
+
+    // Inicializar gráfica en todos los dispositivos
     try {
       initScissorsChart();
       updateChartLanguage(lang);
     } catch(e) {
       console.warn('Chart init error:', e);
     }
-  }, 500);
-
-  if (isMaster) {
-    // Re-animar la gráfica cada vez que el maestro vuelve a ese slide
-    Reveal.on('slidechanged', event => {
-      try {
-        if (event.currentSlide.querySelector('#scissorsChart')) {
-          if (scissorsChart) scissorsChart.destroy();
-          initScissorsChart();
-          updateChartLanguage(lang);
-        }
-      } catch(e) {
-        console.warn('Chart slidechanged error:', e);
-      }
-    });
-  }
+  });
 });
 
 // --- CHART LOGIC ---
