@@ -1,0 +1,44 @@
+  /* Dashboard UI Mobile */
+  .dashboard-ui { flex-direction: column !important; gap: 0.5rem !important; margin-top: 0.2rem !important; }
+  .kpi-row { flex-direction: row !important; gap: 0.4rem !important; }
+  .kpi-card { padding: 0.5rem !important; gap: 0.2rem !important; }
+  .kpi-label { font-size: 0.45rem !important; white-space: nowrap !important; }
+  .kpi-value { font-size: 0.8rem !important; white-space: nowrap !important; }
+  .kpi-trend { font-size: 0.45rem !important; white-space: nowrap !important; }
+  .dashboard-chart-box { padding: 0.5rem 1rem !important; height: 100px !important; min-height: 100px !important; }
+  .spline-mock { bottom: 0.5rem !important; left: 1rem !important; width: calc(100% - 2rem) !important; height: calc(100% - 1rem) !important; }
+  .dashboard-sidebar { width: 100% !important; padding: 0.5rem !important; gap: 0.5rem !important; }
+  .ai-copilot-header { font-size: 0.75rem !important; padding-bottom: 0.4rem !important; }
+  .ai-panel { padding: 0.5rem !important; }
+  .ai-panel-title { font-size: 0.55rem !important; }
+  .proj-label { font-size: 0.8rem !important; }
+  .proj-trend { font-size: 0.6rem !important; }
+  .ai-alert-card { padding: 0.4rem !important; gap: 0.4rem !important; }
+  .alert-text { font-size: 0.65rem !important; }
+  .alert-icon { width: 20px !important; height: 20px !important; font-size: 0.8rem !important; }
+  /* Funnel UI Mobile */
+  .funnel-container { flex-direction: column !important; padding: 1rem 0.5rem !important; gap: 0.2rem !important; margin-top: 0.5rem !important; }
+  .funnel-node { gap: 0.2rem !important; font-size: 0.65rem !important; }
+  .funnel-node svg { width: 28px !important; height: 28px !important; }
+  .funnel-arrow { flex: none !important; width: 2px !important; height: 40px !important; margin: 0.2rem 0 !important; background: rgba(255, 255, 255, 0.2) !important; }
+  .funnel-arrow .pulse-line { width: 6px !important; height: 15px !important; top: 0 !important; left: -2px !important; animation: flow-down 1.5s linear infinite !important; }
+  /* Triage Mobile */
+  .triage-diagram { flex-direction: column !important; padding: 2rem 1rem !important; gap: 1.5rem !important; margin-top: 2rem !important; }
+  .triage-bidir { flex-direction: row !important; width: 40px !important; height: 60px !important; gap: 10px !important; }
+  .flow-forward, .flow-backward { width: 2px !important; height: 100% !important; }
+  .flow-forward .pulse-right { top: 0 !important; left: -1px !important; width: 4px !important; height: 30% !important; animation: flow-down 1.5s linear infinite !important; }
+  .flow-backward .pulse-left { bottom: 0 !important; right: -1px !important; width: 4px !important; height: 30% !important; animation: flow-up 1.5s linear infinite !important; top: auto !important; }
+  .chat-bubble { top: auto !important; bottom: -60px !important; font-size: 0.65rem !important; border-radius: 1rem !important; border-top-right-radius: 0 !important; z-index: 10 !important; white-space: normal !important; text-align: center !important; width: 200px !important; }
+  .triage-fork-bidir { width: 160px !important; height: 20px !important; border: 4px solid #A855F7 !important; border-top: none !important; }
+  .triage-fork-bidir::before { top: -20px !important; left: 50% !important; width: 4px !important; height: 20px !important; transform: translateX(-50%) !important; }
+  .triage-outputs { flex-direction: row !important; height: auto !important; width: 100% !important; justify-content: center !important; gap: 0.5rem !important; }
+  .branch { flex-direction: column !important; padding: 0.5rem !important; font-size: 0.55rem !important; text-align: center !important; }
+  .return-dot.top { animation: return-dot-path-top-mob 2.5s linear infinite; }
+  .return-dot.mid { animation: return-dot-path-mid-mob 2.5s linear infinite 0.8s; }
+  .return-dot.bot { animation: return-dot-path-bot-mob 2.5s linear infinite 1.6s; }
+}
+
+@keyframes flow-up { 0% { bottom: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { bottom: 70%; opacity: 0; } }
+@keyframes return-dot-path-top-mob { 0% { top: -4px; left: -2px; opacity: 0; } 10% { top: -4px; left: -2px; opacity: 1; } 40% { top: -4px; left: 76px; opacity: 1; } 50% { top: -26px; left: 76px; opacity: 1; } 90% { top: -26px; left: 76px; opacity: 1; } 100% { top: -26px; left: 76px; opacity: 0; } }
+@keyframes return-dot-path-mid-mob { 0% { top: -26px; left: 76px; opacity: 0; } 10% { top: -26px; left: 76px; opacity: 1; } 90% { top: -26px; left: 76px; opacity: 1; } 100% { top: -26px; left: 76px; opacity: 0; } }
+@keyframes return-dot-path-bot-mob { 0% { top: -4px; right: -2px; opacity: 0; } 10% { top: -4px; right: -2px; opacity: 1; } 40% { top: -4px; right: 76px; opacity: 1; } 50% { top: -26px; right: 76px; opacity: 1; } 90% { top: -26px; right: 76px; opacity: 1; } 100% { top: -26px; right: 76px; opacity: 0; } }
