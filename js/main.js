@@ -57,10 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Inicializar Reveal.js PRIMERO
   Reveal.initialize({
     hash: true,
-    // Configuración de UX según guidelines: desactivar controles si no es master (rol audiencia)
+    // Configuración de UX según guidelines
     controls: isMaster,
     keyboard: isMaster,
     touch: isMaster,
+    // Configuración responsiva para que ocupe toda la pantalla y no se vea borroso
+    width: "100%",
+    height: "100%",
+    margin: 0.05,
+    minScale: 1,
+    maxScale: 1,
     plugins: [ RevealNotes ],
     
     // Configuración de Multiplexing

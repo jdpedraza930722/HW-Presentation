@@ -7,10 +7,15 @@
 
 body {
   background-color: var(--dark-bg);
+  background: radial-gradient(circle at top left, rgba(253, 203, 9, 0.12) 0%, var(--dark-bg) 60%);
+  background-attachment: fixed;
   color: #E0E0E0;
   font-family: 'Inter', 'SF Pro Display', sans-serif;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Logos */
@@ -300,6 +305,42 @@ h1, h2, h3, h4, h5, h6 {
   transform: scaleY(1);
 }
 
+.presenters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.presenter-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid rgba(253, 203, 9, 0.5);
+  padding: 1.5rem 2rem;
+  border-radius: 0 1rem 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.presenter-card:hover {
+  background: rgba(253, 203, 9, 0.05);
+  border-left-color: var(--brand-yellow);
+}
+
+.presenter-card h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.presenter-card p {
+  margin: 0.5rem 0 0 0;
+  color: #999;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
 .strategy-quote {
   background: rgba(253, 203, 9, 0.05);
   border-left: 4px solid var(--brand-yellow);
@@ -340,6 +381,37 @@ h1, h2, h3, h4, h5, h6 {
 
 .toast-notification.show {
   bottom: 5rem;
+}
+
+.glass-panel {
+  background: rgba(17, 17, 17, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .glass-panel {
+    padding: 1.5rem;
+    width: 95%;
+  }
+  .presenter-card h3 {
+    font-size: 1.3rem !important;
+  }
+  .presenter-card p {
+    font-size: 1rem !important;
+  }
+  .agenda-item {
+    font-size: 1.2rem !important;
+    padding: 1rem 1.2rem !important;
+  }
 }
 
 /* Floating Language Switcher in Presentation */
