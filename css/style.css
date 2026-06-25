@@ -1227,6 +1227,176 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 10px;
 }
 
+/* YOLO Computer Vision Diagram */
+.yolo-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.yolo-camera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #38BDF8;
+  position: relative;
+  animation: cam-scan 4s infinite alternate ease-in-out;
+}
+.yolo-camera::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 250px solid rgba(56, 189, 248, 0.05);
+  pointer-events: none;
+}
+@keyframes cam-scan {
+  0% { transform: translateY(0) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(5deg); }
+}
+
+.yolo-floor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  min-height: 300px;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.2);
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-interaction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  z-index: 5;
+}
+
+.yolo-bbox.bg {
+  position: absolute;
+  z-index: 1;
+}
+
+.yolo-bbox {
+  width: 140px;
+  height: 220px;
+  position: relative;
+  display: flex;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.bbox-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: inherit;
+}
+.bbox-corner.tl { top: 0; left: 0; border-top: 3px solid; border-left: 3px solid; }
+.bbox-corner.tr { top: 0; right: 0; border-top: 3px solid; border-right: 3px solid; }
+.bbox-corner.bl { bottom: 0; left: 0; border-bottom: 3px solid; border-left: 3px solid; }
+.bbox-corner.br { bottom: 0; right: 0; border-bottom: 3px solid; border-right: 3px solid; }
+
+.yolo-bbox.client {
+  color: #EC4899;
+  border-color: #EC4899;
+}
+.yolo-bbox.seller {
+  color: #10B981;
+  border-color: #10B981;
+}
+.yolo-bbox.main-subject.client {
+  animation: float-slight 3s infinite alternate ease-in-out;
+}
+.yolo-bbox.main-subject.seller {
+  animation: float-slight 4s infinite alternate ease-in-out;
+}
+@keyframes float-slight {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-5px) translateX(5px); }
+}
+
+.yolo-label {
+  padding: 0.2rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 2px;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.yolo-bbox.client .yolo-label {
+  background: #EC4899;
+  color: #fff;
+}
+.yolo-bbox.seller .yolo-label {
+  background: #10B981;
+  color: #fff;
+}
+
+.yolo-connection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+.yolo-connection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -80px;
+  right: -80px;
+  height: 2px;
+  background: dashed 2px rgba(255, 255, 255, 0.2);
+  z-index: 0;
+}
+
+.yolo-timer-box, .yolo-alert-box {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.yolo-timer-box {
+  color: var(--brand-yellow);
+  border-color: var(--brand-yellow);
+}
+
+.yolo-alert-box {
+  color: #EF4444;
+  border-color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+  animation: alert-flash 1s infinite alternate;
+  font-weight: bold;
+}
+
+@keyframes alert-flash {
+  from { opacity: 0.5; box-shadow: 0 0 0 transparent; }
+  to { opacity: 1; box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+}
+
 /* Mobile Agenda Layout */
 @media (max-width: 768px) {
   .agenda-section::before {
@@ -1329,8 +1499,43 @@ h1, h2, h3, h4, h5, h6 {
     top: -20px !important;
     padding: 0 5px !important;
   }
-  .ai-brain-node {
-    padding: 0.8rem 1.5rem !important;
-    font-size: 0.8rem !important;
+  .yolo-diagram {
+    margin-top: 0.5rem !important;
+  }
+  .yolo-floor {
+    padding: 1rem 0 !important;
+  }
+  .yolo-camera div {
+    font-size: 1.2rem !important;
+    margin-top: 0.5rem !important;
+  }
+  .yolo-bbox.bg {
+    display: none !important;
+  }
+  .yolo-bbox {
+    width: 100px !important;
+    height: 140px !important;
+  }
+  .yolo-label {
+    font-size: 0.6rem !important;
+    padding: 0.15rem 0.4rem !important;
+    top: -10px !important;
+    left: 5px !important;
+  }
+  .yolo-timer-box, .yolo-alert-box {
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+  .yolo-connection {
+    gap: 0.5rem !important;
+  }
+  .yolo-connection::before {
+    left: -20px !important;
+    right: -20px !important;
+  }
+  .yolo-camera::after {
+    border-left: 100px solid transparent !important;
+    border-right: 100px solid transparent !important;
+    border-bottom: 200px solid rgba(56, 189, 248, 0.05) !important;
   }
 }

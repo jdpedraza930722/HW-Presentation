@@ -42,7 +42,14 @@ const translations = {
     slide4_node_cdmx: "Almacén Central (CDMX)",
     slide4_node_jalisco: "Hub Jalisco",
     slide4_ai_brain: "IA Predictiva",
-    slide4_flow: "Rotación JIT"
+    slide4_flow: "Rotación JIT",
+    slide5_watermark: "06",
+    slide5_title: "Visión por Computadora",
+    slide5_cam_label: "Cámara",
+    slide5_client: "Cliente",
+    slide5_seller: "Vendedor",
+    slide5_timer: "Tiempo: 02:00",
+    slide5_alert: "Alerta: Interacción nula"
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -87,7 +94,14 @@ const translations = {
     slide4_node_cdmx: "Central Warehouse (CDMX)",
     slide4_node_jalisco: "Jalisco Hub",
     slide4_ai_brain: "Predictive AI",
-    slide4_flow: "JIT Rotation"
+    slide4_flow: "JIT Rotation",
+    slide5_watermark: "06",
+    slide5_title: "Computer Vision",
+    slide5_cam_label: "Camera",
+    slide5_client: "Customer",
+    slide5_seller: "Sales Rep",
+    slide5_timer: "Time: 02:00",
+    slide5_alert: "Alert: No interaction"
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -132,6 +146,13 @@ const translations = {
     slide4_node_cdmx: "中央仓库 (CDMX)",
     slide4_node_jalisco: "哈利斯科枢纽",
     slide4_ai_brain: "预测性 AI",
-    slide4_flow: "准时制库存 (JIT)"
+    slide4_flow: "准时制库存 (JIT)",
+    slide5_watermark: "〇六",
+    slide5_title: "计算机视觉",
+    slide5_cam_label: "摄像头",
+    slide5_client: "顾客",
+    slide5_seller: "销售员",
+    slide5_timer: "时间: 〇二:〇〇",
+    slide5_alert: "警报：无互动"
   }
 };
