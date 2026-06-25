@@ -313,3 +313,34 @@ function updateChartLanguage(currentLang) {
     scissorsChart.update();
   }
 }
+
+// -----------------------------------------------------------------------------
+// SCREEN WAKE LOCK API (Evita que el celular se apague durante la presentación)
+// -----------------------------------------------------------------------------
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => {
+        console.log('Screen Wake Lock liberado');
+      });
+      console.log('Screen Wake Lock activado: Pantalla siempre encendida');
+    }
+  } catch (err) {
+    console.warn(`Wake Lock Error: ${err.name}, ${err.message}`);
+  }
+}
+
+// Solicitar al inicio
+document.addEventListener('DOMContentLoaded', () => {
+  requestWakeLock();
+});
+
+// Volver a solicitar si la pestaña se oculta y vuelve a mostrarse
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
