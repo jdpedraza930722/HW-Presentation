@@ -411,49 +411,172 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 10px rgba(253, 203, 9, 0.5);
 }
 
-.agenda-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  width: 100%;
-}
-
-.agenda-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem 2rem;
-  border-radius: 1rem;
-  font-size: 1.6rem;
-  text-align: left;
-  color: #fff;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* TIMELINE AGENDA SECTION ACCENT */
+.agenda-section {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
-.agenda-item:hover {
-  background: rgba(253, 203, 9, 0.05);
-  border-color: var(--brand-yellow);
-  transform: translateX(15px);
-  color: var(--brand-yellow);
-  box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.5);
-}
-
-.agenda-item::before {
+.agenda-section::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 4px;
-  background: var(--brand-yellow);
-  transform: scaleY(0);
-  transition: transform 0.3s ease;
+  width: 80px; /* Thick gradient block on the far left */
+  background: linear-gradient(180deg, var(--brand-yellow) 0%, #FFA000 50%, #FF6F00 100%);
+  box-shadow: 5px 0 25px rgba(253, 203, 9, 0.4);
+  z-index: 10;
 }
 
-.agenda-item:hover::before {
-  transform: scaleY(1);
+/* TIMELINE AGENDA */
+.timeline-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 0 80px; /* Offset to clear the 80px left gradient bar */
+  text-align: left;
+  position: relative;
 }
+
+/* Giant Watermark Number */
+.timeline-container::after {
+  content: '02';
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28rem;
+  font-weight: 800;
+  color: rgba(253, 203, 9, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.agenda-badge {
+  display: inline-block;
+  background: var(--brand-yellow);
+  color: #111;
+  font-weight: 800;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 15px rgba(253, 203, 9, 0.4);
+  position: relative;
+  z-index: 5;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 3rem;
+  z-index: 5;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 60px; /* Aligned with the center of the dots */
+  width: 1px;
+  border-left: 2px dashed rgba(255, 255, 255, 0.15); /* Dashed line like the screenshot */
+  z-index: 1;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Icon box on left */
+.timeline-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.timeline-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Center dot */
+.timeline-dot {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  z-index: 3;
+  margin-right: 30px;
+}
+
+/* The Ripple Effect */
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: timeline-ripple 2s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes timeline-ripple {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Content on right */
+.timeline-content {
+  width: calc(100% - 60px);
+  text-align: left;
+  padding-left: 2rem;
+  box-sizing: border-box;
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  text-transform: none; /* Keep natural case */
+  letter-spacing: 0.5px;
+}
+
+.timeline-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Color Modifiers */
+.color-1 { color: #F472B6; } .timeline-dot.color-1 { background-color: #F472B6; } /* Pink */
+.color-2 { color: #A855F7; } .timeline-dot.color-2 { background-color: #A855F7; } /* Purple */
+.color-3 { color: #38BDF8; } .timeline-dot.color-3 { background-color: #38BDF8; } /* Cyan */
+.color-4 { color: #3B82F6; } .timeline-dot.color-4 { background-color: #3B82F6; } /* Blue */
+.color-5 { color: var(--brand-yellow); } .timeline-dot.color-5 { background-color: var(--brand-yellow); } /* Yellow */
 
 .presenters-container {
   display: flex;
