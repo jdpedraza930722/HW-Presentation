@@ -7,8 +7,6 @@
 
 body {
   background-color: var(--dark-bg);
-  background: radial-gradient(circle at top left, rgba(253, 203, 9, 0.12) 0%, var(--dark-bg) 60%);
-  background-attachment: fixed;
   color: #E0E0E0;
   font-family: 'Inter', 'SF Pro Display', sans-serif;
   margin: 0;
