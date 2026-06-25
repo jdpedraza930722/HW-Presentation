@@ -145,10 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
   Reveal.on('slidechanged', event => {
     // If the slide contains the scissors chart, animate it
     if (event.currentSlide.querySelector('#scissorsChart')) {
-      if (scissorsChart) {
-        // Reset and redraw chart to replay the drawing animation
-        scissorsChart.reset();
-        scissorsChart.update();
+      if (typeof initScissorsChart === 'function') {
+        if (scissorsChart) scissorsChart.destroy();
+        initScissorsChart();
       }
     }
   });
