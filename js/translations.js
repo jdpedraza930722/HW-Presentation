@@ -87,7 +87,16 @@ const translations = {
     slide9_push_title: "Revisión de frenos",
     slide9_push_desc: "Agenda con 10% de descuento",
     slide9_app_btn: "Reservar Cita",
-    slide9_erp_status: "Agenda Bloqueada"
+    slide9_erp_status: "Agenda Bloqueada",
+    slide10_watermark: "11",
+    slide10_title: "Conclusión - El Impacto Financiero",
+    slide10_pillar1_title: "Escalabilidad Sin Costo",
+    slide10_pillar1_desc: "(Arquitectura Multicompañía)",
+    slide10_pillar2_title: "Conversión y Eficiencia",
+    slide10_pillar2_desc: "(IA en Piso y Soporte)",
+    slide10_pillar3_title: "Independencia del Mercado",
+    slide10_pillar3_desc: "(Base de Datos y Postventa)",
+    slide10_conclusion: "Jalisco es la prueba de concepto para la dominación del mercado."
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -177,7 +186,16 @@ const translations = {
     slide9_push_title: "Brake inspection",
     slide9_push_desc: "Book with 10% discount",
     slide9_app_btn: "Book Appointment",
-    slide9_erp_status: "Agenda Locked"
+    slide9_erp_status: "Agenda Locked",
+    slide10_watermark: "11",
+    slide10_title: "Conclusion - Financial Impact",
+    slide10_pillar1_title: "Zero-Cost Scalability",
+    slide10_pillar1_desc: "(Multi-company Architecture)",
+    slide10_pillar2_title: "Conversion & Efficiency",
+    slide10_pillar2_desc: "(AI in Floor and Support)",
+    slide10_pillar3_title: "Market Independence",
+    slide10_pillar3_desc: "(Database and Post-sales)",
+    slide10_conclusion: "Jalisco is the proof of concept for market domination."
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -267,6 +285,15 @@ const translations = {
     slide9_push_title: "刹车检查",
     slide9_push_desc: "预约享九折优惠",
     slide9_app_btn: "预约服务",
-    slide9_erp_status: "日程已锁定"
+    slide9_erp_status: "日程已锁定",
+    slide10_watermark: "十一",
+    slide10_title: "结论 - 全面财务影响",
+    slide10_pillar1_title: "零成本可扩展性",
+    slide10_pillar1_desc: "(多公司架构)",
+    slide10_pillar2_title: "转化与效率",
+    slide10_pillar2_desc: "(前台与客服 AI)",
+    slide10_pillar3_title: "市场独立性",
+    slide10_pillar3_desc: "(数据库与售后服务)",
+    slide10_conclusion: "哈利斯科州 (Jalisco) 是市场主导地位的概念验证。"
   }
 };
