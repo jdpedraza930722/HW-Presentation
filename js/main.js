@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let lang = ['es', 'en', 'zh'].includes(rawLang) ? rawLang : 'es';
   const isMaster = urlParams.get('role') === 'master' || localStorage.getItem('hw_presenter') === 'true';
   
+  if (isMaster) {
+    document.body.classList.add('is-master');
+  } else {
+    document.body.classList.add('is-client');
+  }
+  
   // 2. Función para inyectar traducciones dinámicamente
   function applyTranslations(currentLang) {
     if (typeof translations !== 'undefined' && translations[currentLang]) {

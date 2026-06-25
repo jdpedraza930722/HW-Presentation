@@ -16,6 +16,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Security / Sync Enforcement */
+body.is-client .reveal {
+  pointer-events: none !important;
+  touch-action: none !important;
+}
+
 /* Logos */
 .logo-container {
   width: 110px;
