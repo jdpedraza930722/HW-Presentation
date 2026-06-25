@@ -2031,7 +2031,7 @@ h1, h2, h3, h4, h5, h6 {
   .funnel-arrow { flex: none !important; width: 2px !important; height: 40px !important; margin: 0.2rem 0 !important; background: rgba(255, 255, 255, 0.2) !important; }
   .funnel-arrow .pulse-line { width: 6px !important; height: 15px !important; top: 0 !important; left: -2px !important; animation: flow-down 1.5s linear infinite !important; }
     /* Triage Mobile */
-  .triage-diagram { flex-direction: column !important; padding: 0.5rem !important; gap: 0.5rem !important; margin-top: 0.5rem !important; }
+  .triage-diagram { flex-direction: column !important; padding: 0.5rem !important; gap: 0.5rem !important; margin-top: 0.2rem !important; }
   .triage-input { gap: 0.2rem !important; }
   .triage-input svg { width: 30px !important; height: 30px !important; }
   .triage-bidir { flex-direction: row !important; width: 30px !important; height: 30px !important; gap: 10px !important; }
@@ -2039,13 +2039,14 @@ h1, h2, h3, h4, h5, h6 {
   .flow-forward .pulse-right { top: 0 !important; left: -1px !important; width: 4px !important; height: 30% !important; animation: flow-down 1.5s linear infinite !important; }
   .flow-backward .pulse-left { bottom: 0 !important; right: -1px !important; width: 4px !important; height: 30% !important; animation: flow-up 1.5s linear infinite !important; top: auto !important; }
   .triage-ai { gap: 0.2rem !important; }
-  .triage-ai-core svg { width: 40px !important; height: 40px !important; }
-  .chat-bubble { top: 0 !important; bottom: auto !important; left: 110% !important; transform: none !important; width: 140px !important; font-size: 0.55rem !important; padding: 0.4rem !important; border-bottom-left-radius: 1rem !important; border-top-left-radius: 0 !important; }
-  .triage-fork-bidir { width: 160px !important; height: 15px !important; border-width: 2px !important; border-top: none !important; }
-  .triage-fork-bidir::before { top: -15px !important; height: 15px !important; width: 2px !important; left: 50% !important; transform: translateX(-50%) !important; }
-  .triage-outputs { flex-direction: row !important; height: auto !important; width: 100% !important; justify-content: center !important; gap: 0.2rem !important; }
-  .branch { flex-direction: column !important; padding: 0.3rem !important; font-size: 0.5rem !important; text-align: center !important; }
-  .branch svg { width: 20px !important; height: 20px !important; }
+  .triage-ai-core svg { width: 35px !important; height: 35px !important; }
+  .triage-timer { margin-top: -6px !important; transform: scale(0.65) !important; }
+  .chat-bubble { display: none !important; }
+  .triage-fork-bidir { margin-top: 25px !important; width: 180px !important; height: 10px !important; border-width: 2px !important; border-bottom: none !important; border-top: 2px solid #A855F7 !important; }
+  .triage-fork-bidir::before { top: -25px !important; height: 25px !important; width: 2px !important; left: 50% !important; transform: translateX(-50%) !important; }
+  .triage-outputs { flex-direction: row !important; height: auto !important; width: 100% !important; justify-content: center !important; gap: 0.4rem !important; margin-top: -5px !important; }
+  .branch { flex-direction: column !important; padding: 0.3rem !important; font-size: 0.5rem !important; text-align: center !important; width: 50px !important; }
+  .branch svg { width: 16px !important; height: 16px !important; }
   .return-dot.top { animation: return-dot-path-top-mob 2.5s linear infinite; }
   .return-dot.mid { animation: return-dot-path-mid-mob 2.5s linear infinite 0.8s; }
   .return-dot.bot { animation: return-dot-path-bot-mob 2.5s linear infinite 1.6s; }
