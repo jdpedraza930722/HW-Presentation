@@ -110,15 +110,21 @@
       </section>
 
       <!-- Diapositiva 2: El Contexto y La Estrategia -->
-      <section>
-        <div class="glass-panel animate-fade-in-up">
-          <h2 data-i18n="slide2_title" style="margin-bottom: 0;">El Contexto y La Estrategia</h2>
-          <div class="highlight-bar"></div>
+      <section class="agenda-section">
+        <div class="timeline-container animate-fade-in-up">
+          <div class="agenda-badge" style="margin-bottom: 2rem;">
+            <span data-i18n="slide2_title">El Contexto y La Estrategia</span>
+          </div>
           
-          <div class="strategy-quote">
-            <p data-i18n="slide2_text">Cargando contexto...</p>
+          <!-- Chart Container -->
+          <div class="chart-container" style="position: relative; height: 60vh; width: 100%; padding-right: 2rem;">
+            <canvas id="scissorsChart"></canvas>
           </div>
         </div>
+
+        <aside class="notes">
+          "La industria de la movilidad está cambiando. Sabemos que la exigencia de placas y regulaciones es una tendencia que inevitablemente llegará a Jalisco. Si esperamos a que la ley se aplique, las ventas sufrirán fricción. ¿Qué estamos haciendo hoy? Construyendo un escudo. Todo el ecosistema que verán a continuación tiene un objetivo: capturar al cliente ahora, fidelizarlo y crear un ecosistema donde la rentabilidad dependa de nuestra propia base de datos y servicios, y no de las barreras que imponga el gobierno."
+        </aside>
       </section>
 
     </div>
@@ -126,6 +132,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/notes/notes.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>

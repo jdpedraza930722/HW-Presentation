@@ -18,8 +18,16 @@ const translations = {
     agenda_item3_desc: "Optimización de procesos operativos.",
     agenda_item4_title: "Retención y Expansión",
     agenda_item4_desc: "Crecimiento sostenible de clientes.",
-    slide2_title: "El Contexto y <span class='highlight'>La Estrategia</span>",
-    slide2_text: "Establecer una presencia dominante en la movilidad eléctrica aprovechando el ecosistema tecnológico y de manufactura de Jalisco para expansión en toda Latinoamérica."
+    slide2_title: "Contexto y Estrategia",
+    slide2_subtitle: "Preparados para la Regulación",
+    slide2_msg_title: "Mensaje Principal",
+    slide2_msg_text: "La regulación de placas para movilidad eléctrica es una tendencia nacional inminente. Jalisco será regulado, pero nosotros ya estamos construyendo el ecosistema para que nuestras ventas no dependan de ello.",
+    slide2_roi_title: "Impacto en Rentabilidad (ROI)",
+    slide2_roi_text: "Mitigación de riesgo de pérdida de ingresos. Independencia del tráfico orgánico al crear un mercado cautivo.",
+    slide2_chart_title: "El Efecto Tijera",
+    slide2_chart_label_1: "Ventas sin Ecosistema (Regulación)",
+    slide2_chart_label_2: "Ingresos por Base Propia y Postventa",
+    slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulación)', 'Q6', 'Q7', 'Q8']
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -40,8 +48,16 @@ const translations = {
     agenda_item3_desc: "Optimization of operational processes.",
     agenda_item4_title: "Retention & Expansion",
     agenda_item4_desc: "Sustainable customer growth.",
-    slide2_title: "Context and <span class='highlight'>Strategy</span>",
-    slide2_text: "Establish a dominant presence in electric mobility by leveraging Jalisco's technology and manufacturing ecosystem for expansion across Latin America."
+    slide2_title: "Context & Strategy",
+    slide2_subtitle: "Ready for Regulation",
+    slide2_msg_title: "Main Message",
+    slide2_msg_text: "License plate regulation for electric mobility is an imminent national trend. Jalisco will be regulated, but we are already building the ecosystem so our sales won't depend on it.",
+    slide2_roi_title: "Profitability Impact (ROI)",
+    slide2_roi_text: "Mitigation of income loss risk. Independence from organic street traffic by creating a captive market.",
+    slide2_chart_title: "The Scissors Effect",
+    slide2_chart_label_1: "Sales without Ecosystem (Regulation)",
+    slide2_chart_label_2: "Proprietary DB & Post-sales Income",
+    slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulation)', 'Q6', 'Q7', 'Q8']
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -62,7 +78,15 @@ const translations = {
     agenda_item3_desc: "优化业务运营流程。",
     agenda_item4_title: "客户维系与扩张",
     agenda_item4_desc: "实现客户的持续增长。",
-    slide2_title: "背景与<span class='highlight'>战略</span>",
-    slide2_text: "利用哈利斯科州的科技与制造生态系统，在电动出行领域确立主导地位，并向整个拉丁美洲市场扩张。"
+    slide2_title: "背景与战略",
+    slide2_subtitle: "为监管做好准备",
+    slide2_msg_title: "核心信息",
+    slide2_msg_text: "电动出行的车牌监管是迫在眉睫的全国趋势。哈利斯科州将受到监管，但我们已经在构建生态系统，因此我们的销售不会依赖于此。",
+    slide2_roi_title: "盈利能力影响 (ROI)",
+    slide2_roi_text: "降低收入流失风险。通过创建专属市场摆脱对自然客流的依赖。",
+    slide2_chart_title: "剪刀差效应",
+    slide2_chart_label_1: "无生态系统销售 (监管影响)",
+    slide2_chart_label_2: "自有数据库和售后收入",
+    slide2_chart_x_labels: ['第一季度', '第二季度', '第三季度', '第四季度', '第五季度 (监管开始)', '第六季度', '第七季度', '第八季度']
   }
 };

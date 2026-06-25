@@ -34,6 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
           a.classList.add('active');
         }
       });
+      
+      if (typeof updateChartLanguage === 'function') {
+        updateChartLanguage(currentLang);
+      }
     }
   }
 
@@ -125,4 +129,126 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => {
       console.warn("Fallo al cargar Multiplex script", err);
     });
+
+  setTimeout(() => {
+    initScissorsChart();
+    updateChartLanguage(lang);
+  }, 500);
 });
+
+// --- CHART LOGIC ---
+let scissorsChart;
+
+function toChineseNumeral(num) {
+  if (num === 0) return '零';
+  const digits = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+  if (num < 10) return digits[num];
+  if (num < 20) return '十' + (num % 10 === 0 ? '' : digits[num % 10]);
+  if (num < 100) return digits[Math.floor(num / 10)] + '十' + (num % 10 === 0 ? '' : digits[num % 10]);
+  if (num < 1000) {
+    let result = digits[Math.floor(num / 100)] + '百';
+    let rem = num % 100;
+    if (rem === 0) return result;
+    if (rem < 10) return result + '零' + digits[rem];
+    return result + (Math.floor(rem / 10) === 1 ? '一十' : digits[Math.floor(rem / 10)] + '十') + (rem % 10 === 0 ? '' : digits[rem % 10]);
+  }
+  return num.toString();
+}
+
+function initScissorsChart() {
+  const canvas = document.getElementById('scissorsChart');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  
+  const labels = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulación)', 'Q6', 'Q7', 'Q8'];
+  const dataSales = [100, 105, 110, 115, 80, 60, 45, 30];
+  const dataEcosystem = [10, 20, 35, 55, 85, 120, 160, 210];
+  
+  scissorsChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Ventas sin Ecosistema (Regulación)',
+          data: dataSales,
+          borderColor: 'rgba(150, 150, 150, 0.8)',
+          backgroundColor: 'rgba(150, 150, 150, 0.1)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true
+        },
+        {
+          label: 'Ingresos por Base Propia y Postventa',
+          data: dataEcosystem,
+          borderColor: '#38BDF8',
+          backgroundColor: 'rgba(56, 189, 248, 0.15)',
+          borderWidth: 4,
+          tension: 0.4,
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { 
+            color: 'rgba(255, 255, 255, 0.8)',
+            font: { size: 14, family: "'Inter', sans-serif" }
+          }
+        },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                const isZh = document.documentElement.lang === 'zh';
+                label += isZh ? toChineseNumeral(context.parsed.y) : context.parsed.y;
+              }
+              return label;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { 
+          ticks: { color: 'rgba(255, 255, 255, 0.5)' }, 
+          grid: { color: 'rgba(255,255,255,0.05)' } 
+        },
+        y: { 
+          ticks: { 
+            color: 'rgba(255, 255, 255, 0.5)',
+            callback: function(value) {
+              return document.documentElement.lang === 'zh' ? toChineseNumeral(value) : value;
+            }
+          }, 
+          grid: { color: 'rgba(255,255,255,0.05)' } 
+        }
+      },
+      interaction: {
+        mode: 'nearest',
+        axis: 'x',
+        intersect: false
+      }
+    }
+  });
+}
+
+function updateChartLanguage(currentLang) {
+  if (scissorsChart && typeof translations !== 'undefined' && translations[currentLang]) {
+    scissorsChart.data.datasets[0].label = translations[currentLang].slide2_chart_label_1;
+    scissorsChart.data.datasets[1].label = translations[currentLang].slide2_chart_label_2;
+    if (translations[currentLang].slide2_chart_x_labels) {
+      scissorsChart.data.labels = translations[currentLang].slide2_chart_x_labels;
+    }
+    scissorsChart.update();
+  }
+}
