@@ -93,11 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Inicializar Reveal.js PRIMERO
   Reveal.initialize({
-    hash: true,
+    // hash solo en master; en clientes lo desactivamos para evitar
+    // eventos extra de navegación que rompan la sincronización
+    hash: isMaster,
     // Configuración de UX según guidelines
     controls: isMaster,
     keyboard: isMaster,
-    touch: isMaster,
+    touch: false,  // desactivado para todos — el cliente no debe poder navegar
     // Configuración responsiva para que ocupe toda la pantalla y no se vea borroso
     width: "100%",
     height: "100%",
@@ -136,21 +138,32 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn("Fallo al cargar Multiplex script", err);
     });
 
-  setTimeout(() => {
-    initScissorsChart();
-    updateChartLanguage(lang);
-  }, 500);
-
-  // Trigger chart animation every time the slide is shown
-  Reveal.on('slidechanged', event => {
-    // If the slide contains the scissors chart, animate it
-    if (event.currentSlide.querySelector('#scissorsChart')) {
-      if (typeof initScissorsChart === 'function') {
-        if (scissorsChart) scissorsChart.destroy();
+  // La gráfica SOLO se inicializa/reinicializa en el maestro.
+  // En el cliente NO tocamos Chart.js para evitar errores de JS que
+  // interrumpirían el listener del socket del multiplex causando desync.
+  if (isMaster) {
+    setTimeout(() => {
+      try {
         initScissorsChart();
+        updateChartLanguage(lang);
+      } catch(e) {
+        console.warn('Chart init error:', e);
       }
-    }
-  });
+    }, 500);
+
+    // Re-animar la gráfica cada vez que se muestra ese slide
+    Reveal.on('slidechanged', event => {
+      try {
+        if (event.currentSlide.querySelector('#scissorsChart')) {
+          if (scissorsChart) scissorsChart.destroy();
+          initScissorsChart();
+          updateChartLanguage(lang);
+        }
+      } catch(e) {
+        console.warn('Chart slidechanged error:', e);
+      }
+    });
+  }
 });
 
 // --- CHART LOGIC ---
