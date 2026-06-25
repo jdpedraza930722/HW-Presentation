@@ -36,7 +36,13 @@ const translations = {
     slide3_layer2: "Orquestación (n8n)",
     slide3_layer3: "Dominio (ERP)",
     slide3_layer4: "Persistencia (BD)",
-    slide3_docker: "Encapsulado en Docker"
+    slide3_docker: "Encapsulado en Docker",
+    slide4_watermark: "05",
+    slide4_title: "Abastecimiento Inteligente",
+    slide4_node_cdmx: "Almacén Central (CDMX)",
+    slide4_node_jalisco: "Hub Jalisco",
+    slide4_ai_brain: "IA Predictiva",
+    slide4_flow: "Rotación JIT"
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -75,7 +81,13 @@ const translations = {
     slide3_layer2: "Orchestration (n8n)",
     slide3_layer3: "Domain (ERP)",
     slide3_layer4: "Persistence (DB)",
-    slide3_docker: "Encapsulated in Docker"
+    slide3_docker: "Encapsulated in Docker",
+    slide4_watermark: "05",
+    slide4_title: "Smart Procurement",
+    slide4_node_cdmx: "Central Warehouse (CDMX)",
+    slide4_node_jalisco: "Jalisco Hub",
+    slide4_ai_brain: "Predictive AI",
+    slide4_flow: "JIT Rotation"
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -114,6 +126,12 @@ const translations = {
     slide3_layer2: "编排层 (n8n)",
     slide3_layer3: "领域层 (ERP)",
     slide3_layer4: "持久层 (数据库)",
-    slide3_docker: "Docker 封装"
+    slide3_docker: "Docker 封装",
+    slide4_watermark: "〇五",
+    slide4_title: "智能采购",
+    slide4_node_cdmx: "中央仓库 (CDMX)",
+    slide4_node_jalisco: "哈利斯科枢纽",
+    slide4_ai_brain: "预测性 AI",
+    slide4_flow: "准时制库存 (JIT)"
   }
 };
