@@ -128,6 +128,48 @@
         </aside>
       </section>
 
+      <!-- Diapositiva 3: La Arquitectura Base -->
+      <section class="agenda-section">
+        <div class="timeline-container animate-fade-in-up">
+          <div class="watermark-number" data-i18n="slide3_watermark">04</div>
+          <div class="agenda-badge" style="margin-bottom: 2rem;">
+            <span data-i18n="slide3_title">La Arquitectura Base</span>
+          </div>
+          
+          <!-- Architecture Diagram -->
+          <div class="arch-diagram animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="arch-docker-wrapper">
+              <div class="arch-docker-label">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="margin-bottom: 5px;"><path d="M22.62 14.18c-.46-1.57-1.92-2.73-3.61-2.73h-2.14V9.66h2.15c.16 0 .28-.12.28-.28V7.54c0-.16-.12-.28-.28-.28h-2.15V5.42c0-.16-.12-.28-.28-.28h-1.84c-.16 0-.28.12-.28.28v1.84h-1.84c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h1.84v1.84h-1.84c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h1.84v1.84h-1.84c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h1.84v1.84c0 .16.12.28.28.28h1.84c.16 0 .28-.12.28-.28v-1.84h2.15c1.69 0 3.15-1.16 3.61-2.73zM5.3 11.5H3.14c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28H5.3c.16 0 .28-.12.28-.28v-1.84c0-.16-.12-.28-.28-.28zM7.74 11.5H5.58c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28v-1.84c0-.16-.12-.28-.28-.28zm2.44 0H8.02c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28v-1.84c0-.16-.12-.28-.28-.28zm2.44 0h-2.16c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28v-1.84c0-.16-.12-.28-.28-.28zM5.3 8.44H3.14c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28H5.3c.16 0 .28-.12.28-.28V8.72c0-.16-.12-.28-.28-.28zm2.44 0H5.58c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28V8.72c0-.16-.12-.28-.28-.28zm2.44 0H8.02c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28V8.72c0-.16-.12-.28-.28-.28zm2.44 0h-2.16c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28V8.72c0-.16-.12-.28-.28-.28zm-7.32-3.02H3.14c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28H5.3c.16 0 .28-.12.28-.28V5.7c0-.16-.12-.28-.28-.28zm2.44 0H5.58c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28V5.7c0-.16-.12-.28-.28-.28zm2.44 0H8.02c-.16 0-.28.12-.28.28v1.84c0 .16.12.28.28.28h2.16c.16 0 .28-.12.28-.28V5.7c0-.16-.12-.28-.28-.28z" /></svg>
+                <div data-i18n="slide3_docker">Encapsulado en Docker</div>
+              </div>
+              
+              <div class="arch-layers-stack">
+                <div class="arch-layer access">
+                  <span data-i18n="slide3_layer1">Capa de Acceso</span>
+                </div>
+                
+                <div class="arch-layer orchestration">
+                  <span data-i18n="slide3_layer2">Orquestación (n8n)</span>
+                </div>
+                
+                <div class="arch-layer domain">
+                  <span data-i18n="slide3_layer3">Dominio (ERPNext)</span>
+                </div>
+                
+                <div class="arch-layer persistence">
+                  <span data-i18n="slide3_layer4">Persistencia (BD)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          "Para soportar este escudo, ya implementamos una arquitectura contenerizada en 4 capas. ¿Qué significa esto para las finanzas de la empresa? Que somos un modelo 'Multicompany' nativo. Si mañana la dirección decide abrir 5 sucursales más en el occidente del país, TI despliega el ERP, las bases de datos y las automatizaciones con un solo comando. Cero tiempos de espera técnicos, cero costos de licencias extra. Estamos listos para franquiciar la operación."
+        </aside>
+      </section>
+
     </div>
   </div>
 

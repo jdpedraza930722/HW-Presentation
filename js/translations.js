@@ -28,7 +28,15 @@ const translations = {
     slide2_chart_label_1: "Ventas sin Ecosistema (Regulación)",
     slide2_chart_label_2: "Ingresos por Base Propia y Postventa",
     slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulación)', 'Q6', 'Q7', 'Q8'],
-    slide2_watermark: "03"
+    slide2_watermark: "03",
+    slide3_title: "La Arquitectura Base",
+    slide3_subtitle: "Escalabilidad a Costo Cero",
+    slide3_watermark: "04",
+    slide3_layer1: "Capa de Acceso",
+    slide3_layer2: "Orquestación (n8n)",
+    slide3_layer3: "Dominio (ERP)",
+    slide3_layer4: "Persistencia (BD)",
+    slide3_docker: "Encapsulado en Docker"
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -59,7 +67,15 @@ const translations = {
     slide2_chart_label_1: "Sales without Ecosystem (Regulation)",
     slide2_chart_label_2: "Proprietary DB & Post-sales Income",
     slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulation)', 'Q6', 'Q7', 'Q8'],
-    slide2_watermark: "03"
+    slide2_watermark: "03",
+    slide3_title: "Core Architecture",
+    slide3_subtitle: "Zero-Cost Scalability",
+    slide3_watermark: "04",
+    slide3_layer1: "Access Layer",
+    slide3_layer2: "Orchestration (n8n)",
+    slide3_layer3: "Domain (ERP)",
+    slide3_layer4: "Persistence (DB)",
+    slide3_docker: "Encapsulated in Docker"
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -90,6 +106,14 @@ const translations = {
     slide2_chart_label_1: "无生态系统销售 (监管影响)",
     slide2_chart_label_2: "自有数据库和售后收入",
     slide2_chart_x_labels: ['第一季度', '第二季度', '第三季度', '第四季度', '第五季度 (监管开始)', '第六季度', '第七季度', '第八季度'],
-    slide2_watermark: "〇三"
+    slide2_watermark: "〇三",
+    slide3_title: "基础架构",
+    slide3_subtitle: "零成本可扩展性",
+    slide3_watermark: "〇四",
+    slide3_layer1: "访问层",
+    slide3_layer2: "编排层 (n8n)",
+    slide3_layer3: "领域层 (ERP)",
+    slide3_layer4: "持久层 (数据库)",
+    slide3_docker: "Docker 封装"
   }
 };

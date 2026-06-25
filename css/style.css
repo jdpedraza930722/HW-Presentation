@@ -981,6 +981,120 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
 }
 
+/* Architecture Diagram */
+.arch-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  perspective: 1000px;
+}
+
+.arch-docker-wrapper {
+  position: relative;
+  border: 2px dashed rgba(56, 189, 248, 0.5);
+  border-radius: 1.5rem;
+  padding: 3.5rem 3rem 3rem 3rem;
+  background: rgba(56, 189, 248, 0.02);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.05) inset;
+  width: 80%;
+  max-width: 600px;
+  animation: docker-pulse 4s infinite ease-in-out;
+}
+
+@keyframes docker-pulse {
+  0%, 100% {
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.05) inset;
+  }
+  50% {
+    border-color: rgba(56, 189, 248, 0.8);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.1) inset, 0 0 15px rgba(56, 189, 248, 0.15);
+  }
+}
+
+.arch-docker-label {
+  position: absolute;
+  top: -1.2rem;
+  left: 2rem;
+  background: #111;
+  padding: 0.2rem 1rem;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 2rem;
+  color: #38BDF8;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.arch-layers-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+@keyframes data-flow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+  12% {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px var(--glow-color);
+  }
+  25% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+.arch-layer {
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  --glow-color: rgba(255,255,255,0.2);
+  animation: data-flow 4s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.arch-layer.access {
+  background: linear-gradient(90deg, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0.05) 100%);
+  border-left: 4px solid #EC4899; /* Pink */
+  --glow-color: rgba(236, 72, 153, 0.4);
+  animation-delay: 0s;
+}
+
+.arch-layer.orchestration {
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0.05) 100%);
+  border-left: 4px solid #A855F7; /* Purple */
+  --glow-color: rgba(168, 85, 247, 0.4);
+  animation-delay: 1s;
+}
+
+.arch-layer.domain {
+  background: linear-gradient(90deg, rgba(253, 203, 9, 0.2) 0%, rgba(253, 203, 9, 0.05) 100%);
+  border-left: 4px solid var(--brand-yellow); /* Yellow */
+  --glow-color: rgba(253, 203, 9, 0.4);
+  animation-delay: 2s;
+}
+
+.arch-layer.persistence {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border-left: 4px solid #10B981; /* Green */
+  --glow-color: rgba(16, 185, 129, 0.4);
+  animation-delay: 3s;
+}
+
 /* Mobile Agenda Layout */
 @media (max-width: 768px) {
   .agenda-section::before {
@@ -1042,5 +1156,28 @@ h1, h2, h3, h4, h5, h6 {
     right: 50% !important;
     transform: translate(50%, -50%) !important;
     top: 50% !important;
+  }
+  
+  /* Architecture Diagram Mobile */
+  .arch-diagram {
+    margin-top: 1rem !important;
+  }
+  .arch-docker-wrapper {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem !important;
+    width: 95% !important;
+    border-radius: 1rem !important;
+  }
+  .arch-docker-label {
+    top: -1rem !important;
+    left: 1rem !important;
+    font-size: 0.8rem !important;
+    padding: 0.15rem 0.8rem !important;
+  }
+  .arch-layers-stack {
+    gap: 0.6rem !important;
+  }
+  .arch-layer {
+    padding: 0.8rem !important;
+    font-size: 0.95rem !important;
   }
 }
