@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honey Whale - Proyecto Nexus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <div class="landing-wrapper animate-fade-in-up">
+    <div class="landing-glass-card">
+      <div class="logo-container">
+        <img src="assets/logo-icon2.jpg" alt="Honey Whale Logo" class="landing-logo">
+      </div>
+      
+      <div class="lang-instruction">
+        <span class="nowrap">请选择您的语言</span>
+        <span class="separator">•</span>
+        <span class="nowrap">Seleccione su idioma</span>
+        <span class="separator">•</span>
+        <span class="nowrap">Select your language</span>
+      </div>
+      
+      <div class="language-selector">
+        <a href="presentation.html?lang=zh" class="lang-btn">
+          <div class="lang-content">
+            <div class="pulse-dot dot-zh"></div>
+            <span class="lang-text">中文 (简体)</span>
+          </div>
+        </a>
+        <a href="presentation.html?lang=es" class="lang-btn">
+          <div class="lang-content">
+            <div class="pulse-dot dot-es"></div>
+            <span class="lang-text">Español</span>
+          </div>
+        </a>
+        <a href="presentation.html?lang=en" class="lang-btn">
+          <div class="lang-content">
+            <div class="pulse-dot dot-en"></div>
+            <span class="lang-text">English</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <div class="corporate-footer animate-fade-in-up" style="animation-delay: 0.5s;">
+      <span class="secure-dot"></span> 安全同步已激活 • Sincronización Segura Activa
+    </div>
+  </div>
+
+  <div id="toast" class="toast-notification"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let tapCount = 0;
+      let toastTimeout;
+      const logo = document.querySelector('.logo-container');
+      const toast = document.getElementById('toast');
+      const langBtns = document.querySelectorAll('.lang-btn');
+
+      function showToast(message, duration = 3000) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('show');
+        }, duration);
+      }
+
+      if (logo) {
+        logo.addEventListener('click', () => {
+          if (localStorage.getItem('hw_presenter') === 'true') return;
+          
+          tapCount++;
+          if (tapCount >= 10 && tapCount < 15) {
+            const remaining = 15 - tapCount;
+            showToast(`Faltan ${remaining} toques para modo presentador...`);
+          } else if (tapCount === 15) {
+            localStorage.setItem('hw_presenter', 'true');
+            showToast('✅ Modo Presentador Desbloqueado', 5000);
+          }
+        });
+      }
+
+      langBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          if (localStorage.getItem('hw_presenter') === 'true') {
+            e.preventDefault();
+            const href = btn.getAttribute('href');
+            window.location.href = href + '&role=master';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
