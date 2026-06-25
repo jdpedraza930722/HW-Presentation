@@ -128,30 +128,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // 5. Cargar Socket.io y luego el plugin de cliente o máster (después de inicializar Reveal)
-  loadScript('https://multiplex.up.railway.app/socket.io/socket.io.js')
-    .then(() => {
-      const roleScript = isMaster ? 'https://multiplex.up.railway.app/master.js' : 'https://multiplex.up.railway.app/client.js';
-      return loadScript(roleScript);
-    })
-    .catch(err => {
-      console.warn("Fallo al cargar Multiplex script", err);
-    });
+  // 5. Socket.io ya está cargado en el <head> de forma síncrona.
+  //    Solo cargamos master.js o client.js según el rol.
+  const roleScript = isMaster
+    ? 'https://multiplex.up.railway.app/master.js'
+    : 'https://multiplex.up.railway.app/client.js';
 
-  // La gráfica SOLO se inicializa/reinicializa en el maestro.
-  // En el cliente NO tocamos Chart.js para evitar errores de JS que
-  // interrumpirían el listener del socket del multiplex causando desync.
+  loadScript(roleScript).catch(err => {
+    console.warn('Fallo al cargar Multiplex role script:', err);
+  });
+
+  // 6. Inicializar gráfica en TODOS los dispositivos (para que se vea en móvil).
+  //    El re-init en slidechanged SOLO ocurre en el maestro para no romper
+  //    el listener del socket en los clientes.
+  setTimeout(() => {
+    try {
+      initScissorsChart();
+      updateChartLanguage(lang);
+    } catch(e) {
+      console.warn('Chart init error:', e);
+    }
+  }, 500);
+
   if (isMaster) {
-    setTimeout(() => {
-      try {
-        initScissorsChart();
-        updateChartLanguage(lang);
-      } catch(e) {
-        console.warn('Chart init error:', e);
-      }
-    }, 500);
-
-    // Re-animar la gráfica cada vez que se muestra ese slide
+    // Re-animar la gráfica cada vez que el maestro vuelve a ese slide
     Reveal.on('slidechanged', event => {
       try {
         if (event.currentSlide.querySelector('#scissorsChart')) {

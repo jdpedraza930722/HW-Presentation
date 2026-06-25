@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.css">
   <!-- Utilizamos el tema black de reveal, pero nuestro css ajustará el look and feel al dark space con glassmorphism -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/theme/black.min.css">
+  <!-- Precargar imagen de fondo para garantizar que cargue en móvil -->
+  <link rel="preload" href="assets/image-presentation.jpg" as="image">
+  <!-- Cargar Socket.io de forma síncrona para que la conexión multiplex
+       se establezca ANTES de que el presentador navegue slides -->
+  <script src="https://multiplex.up.railway.app/socket.io/socket.io.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
