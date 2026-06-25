@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     controls: isMaster,
     keyboard: isMaster,
     touch: false,
+    scrollActivationWidth: null,
     width: "100%",
     height: "100%",
     margin: 0.05,
