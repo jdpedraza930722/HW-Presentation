@@ -40,10 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // Aplicar traducciones iniciales
   applyTranslations(lang);
 
+  const langSwitcher = document.querySelector('.floating-lang-switcher');
+  
+  // Toggle expanded state on mobile
+  langSwitcher.addEventListener('click', (e) => {
+    // Si no se hizo clic exactamente en una etiqueta 'a', se expande/contrae
+    if (e.target.tagName !== 'A') {
+      langSwitcher.classList.toggle('expanded');
+    }
+  });
+
+  // Cerrar al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    if (!langSwitcher.contains(e.target)) {
+      langSwitcher.classList.remove('expanded');
+    }
+  });
+
   // Escuchar clics en el switcher de idiomas
   document.querySelectorAll('.floating-lang-switcher a').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      // Si hacemos clic en el idioma activo, y estamos en móvil, actuamos como toggle
+      if (btn.classList.contains('active')) {
+        langSwitcher.classList.toggle('expanded');
+        return;
+      }
+
       const selectedLang = btn.getAttribute('data-set-lang');
       applyTranslations(selectedLang);
       
@@ -51,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const newUrl = new URL(window.location);
       newUrl.searchParams.set('lang', selectedLang);
       window.history.replaceState({}, '', newUrl);
+
+      // Colapsar el menú tras seleccionar
+      langSwitcher.classList.remove('expanded');
     });
   });
 
