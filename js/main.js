@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Limpiar si el usuario escribió mal los parámetros (ej. ?lang=es?role=master)
   if (rawLang.includes('?')) rawLang = rawLang.split('?')[0];
   if (rawLang.includes('&')) rawLang = rawLang.split('&')[0];
-  
+
   let lang = ['es', 'en', 'zh'].includes(rawLang) ? rawLang : 'es';
   const isMaster = urlParams.get('role') === 'master' || localStorage.getItem('hw_presenter') === 'true';
-  
+
   if (isMaster) {
     document.body.classList.add('is-master');
   } else {
     document.body.classList.add('is-client');
   }
-  
+
   // 2. Función para inyectar traducciones dinámicamente
   function applyTranslations(currentLang) {
     if (typeof translations !== 'undefined' && translations[currentLang]) {
       const dict = translations[currentLang];
-      
+
       const elements = document.querySelectorAll('[data-i18n]');
       elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
           el.innerHTML = dict[key];
         }
       });
-      
+
       if (dict['app_title']) {
         document.title = dict['app_title'];
         document.documentElement.lang = currentLang;
@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Actualizar el UI del switcher
       document.querySelectorAll('.floating-lang-switcher a').forEach(a => {
         a.classList.remove('active');
-        if(a.getAttribute('data-set-lang') === currentLang) {
+        if (a.getAttribute('data-set-lang') === currentLang) {
           a.classList.add('active');
         }
       });
-      
+
       if (typeof updateChartLanguage === 'function') {
         updateChartLanguage(currentLang);
       }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTranslations(lang);
 
   const langSwitcher = document.querySelector('.floating-lang-switcher');
-  
+
   // Toggle expanded state on mobile
   langSwitcher.addEventListener('click', (e) => {
     // Si no se hizo clic exactamente en una etiqueta 'a', se expande/contrae
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.floating-lang-switcher a').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
+
       // Si hacemos clic en el idioma activo, y estamos en móvil, actuamos como toggle
       if (btn.classList.contains('active')) {
         langSwitcher.classList.toggle('expanded');
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const selectedLang = btn.getAttribute('data-set-lang');
       applyTranslations(selectedLang);
-      
+
       // Actualizar URL sin recargar la página
       const newUrl = new URL(window.location);
       newUrl.searchParams.set('lang', selectedLang);
@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
     margin: 0.05,
     minScale: 1,
     maxScale: 1,
-    plugins: [ RevealNotes ],
+    plugins: [RevealNotes],
     multiplex: {
-      secret: isMaster ? '42c84700044e4daba56236eecc78faf8' : null, 
+      secret: isMaster ? '42c84700044e4daba56236eecc78faf8' : null,
       id: 'bdb2e4378ab5102f37916662d7f7d1da0698a0f95cb3c39e50e7ad4d4a2a9201',
       url: 'https://multiplex.up.railway.app/'
     }
@@ -161,21 +161,22 @@ document.addEventListener('DOMContentLoaded', () => {
             initScissorsChart();
             updateChartLanguage(lang);
           }
-        } catch(e) {
+        } catch (e) {
           console.warn('Chart slidechanged error:', e);
         }
       });
 
     } else {
       // === CLIENT: recibir estado del master ===
-      socket.on(multiplex.id, function(message) {
+      socket.on(multiplex.id, function (message) {
         if (message.socketId !== multiplex.id) return;
         if (message.state) {
           // Solo aplicar si el slide es diferente al actual
           var currentState = Reveal.getState();
-          if (message.state.indexh !== currentState.indexh || 
-              message.state.indexv !== currentState.indexv ||
-              message.state.indexf !== currentState.indexf) {
+          if (message.state.indexh !== currentState.indexh ||
+            message.state.indexv !== currentState.indexv ||
+            message.state.indexf !== currentState.indexf) {
+            console.log("State: " + message.state);
             console.log('[Client] Moving to slide:', message.state.indexh, '(was:', currentState.indexh, ')');
             Reveal.setState(message.state);
           } else {
@@ -189,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       initScissorsChart();
       updateChartLanguage(lang);
-    } catch(e) {
+    } catch (e) {
       console.warn('Chart init error:', e);
     }
   });
@@ -217,13 +218,13 @@ function toChineseNumeral(num) {
 function initScissorsChart() {
   const canvas = document.getElementById('scissorsChart');
   if (!canvas) return;
-  
+
   const ctx = canvas.getContext('2d');
-  
+
   const labels = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulación)', 'Q6', 'Q7', 'Q8'];
   const dataSales = [100, 105, 110, 115, 80, 60, 45, 30];
   const dataEcosystem = [10, 20, 35, 55, 85, 120, 160, 210];
-  
+
   scissorsChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -254,7 +255,7 @@ function initScissorsChart() {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          labels: { 
+          labels: {
             color: 'rgba(255, 255, 255, 0.8)',
             font: { size: 14, family: "'Inter', sans-serif" }
           }
@@ -263,7 +264,7 @@ function initScissorsChart() {
           mode: 'index',
           intersect: false,
           callbacks: {
-            label: function(context) {
+            label: function (context) {
               let label = context.dataset.label || '';
               if (label) {
                 label += ': ';
@@ -278,18 +279,18 @@ function initScissorsChart() {
         }
       },
       scales: {
-        x: { 
-          ticks: { color: 'rgba(255, 255, 255, 0.5)' }, 
-          grid: { color: 'rgba(255,255,255,0.05)' } 
+        x: {
+          ticks: { color: 'rgba(255, 255, 255, 0.5)' },
+          grid: { color: 'rgba(255,255,255,0.05)' }
         },
-        y: { 
-          ticks: { 
+        y: {
+          ticks: {
             color: 'rgba(255, 255, 255, 0.5)',
-            callback: function(value) {
+            callback: function (value) {
               return document.documentElement.lang === 'zh' ? toChineseNumeral(value) : value;
             }
-          }, 
-          grid: { color: 'rgba(255,255,255,0.05)' } 
+          },
+          grid: { color: 'rgba(255,255,255,0.05)' }
         }
       },
       interaction: {
