@@ -304,22 +304,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-  font-size: 8rem !important;
+  font-size: 9rem !important; /* Slightly larger to ensure it dictates width */
   font-weight: 900;
-  margin: 0 !important;
+  margin: 0 -12px 15px 0 !important; /* -12px right margin cancels out the trailing letter-spacing */
+  line-height: 0.8 !important; /* Removes massive built-in font padding */
   background: linear-gradient(135deg, #fff 0%, #FDCB09 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
-  letter-spacing: 8px;
+  letter-spacing: 12px;
+}
+
+.hero-lockup {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 0.95rem; /* Tantito más pequeña */
   color: #aaa;
-  letter-spacing: 8px;
+  letter-spacing: 0px;
   text-transform: uppercase;
-  margin: 1rem 0 0 0;
+  margin: 0; /* Gap handled by title's margin-bottom */
+  width: 100%;
+  text-align-last: justify;
+  text-align: justify;
+}
+
+.logo-watermark {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 50px;
+  opacity: 0.5;
+  z-index: 1000;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.hide-watermark .logo-watermark {
+  opacity: 0 !important;
 }
 
 .hero-presenters {
@@ -332,36 +357,48 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
+.presenters-label {
+  display: inline-block;
+  background-color: var(--brand-yellow) !important;
+  color: #111 !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 1rem !important; /* Pill shape */
+  letter-spacing: 2px;
+  margin-bottom: -1rem !important;
+  width: fit-content;
+}
+
 .hero-presenter {
-  text-align: left;
   position: relative;
   padding-left: 1.5rem;
 }
 
 .hero-presenter::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
-  top: 10%;
-  bottom: 10%;
+  top: 0;
+  height: 100%;
   width: 3px;
-  background: var(--brand-yellow);
+  background-color: var(--brand-yellow);
   border-radius: 2px;
 }
 
 .hero-presenter h3 {
-  font-size: 1.4rem !important;
-  color: #fff;
-  margin: 0 0 0.4rem 0 !important;
-  font-weight: 600;
-  text-transform: none;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  margin: 0 0 0.2rem 0 !important;
+  text-transform: none !important;
 }
 
 .hero-presenter p {
-  font-size: 1.1rem !important;
-  color: #888;
+  font-size: 0.9rem !important;
+  color: #ccc !important;
   margin: 0 !important;
-  font-weight: 400;
+  font-weight: 300 !important;
 }
 
 /* Custom Slide Components */
@@ -532,18 +569,19 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem 1.2rem !important;
   }
   .hero-title {
-    font-size: 4rem !important;
-    letter-spacing: 2px;
+    font-size: clamp(2.5rem, 12vw, 4.5rem) !important;
+    letter-spacing: 6px;
+    margin: 0 -6px 8px 0 !important;
   }
   .hero-subtitle {
-    font-size: 0.85rem;
-    letter-spacing: 4px;
-    margin-top: 1rem;
+    font-size: clamp(0.55rem, 2.5vw, 0.75rem);
+    letter-spacing: 0px;
+    margin: 0;
   }
   .hero-presenters {
     bottom: 1.5rem;
     left: 1.5rem;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   .hero-presenter {
     text-align: left;
@@ -551,6 +589,82 @@ h1, h2, h3, h4, h5, h6 {
   }
   .hero-presenter::before {
     display: block;
+  }
+  .hero-presenter h3 {
+    font-size: 0.8rem !important;
+  }
+  .hero-presenter p {
+    font-size: 0.7rem !important;
+  }
+  .presenters-label {
+    font-size: 0.6rem !important;
+    padding: 0.2rem 0.6rem !important;
+    letter-spacing: 1px;
+    margin-bottom: -0.5rem !important;
+  }
+  .logo-watermark {
+    width: 35px;
+  }
+}
+
+@media (max-width: 456px) {
+  /* On very small or short screens, abandon absolute corners and stack everything to prevent overlap */
+  .hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  
+  .hero-cover,
+  .hw-badge,
+  .hero-presenters {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .hero-presenters {
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-presenter {
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+
+  .hero-presenter::before {
+    display: none !important; /* Hide left accent bar when centered */
+  }
+
+  .hero-title {
+    font-size: 3.5rem !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.75rem !important;
+    text-align: center !important;
+    text-align-last: center !important;
+    margin: 0 !important;
+  }
+
+  .presenters-label {
+    margin-bottom: 0 !important;
+  }
+
+  .floating-lang-switcher {
+    bottom: 1rem;
+    right: 1rem;
+    flex-direction: row;
   }
 }
 
