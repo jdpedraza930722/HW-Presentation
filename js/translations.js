@@ -27,7 +27,8 @@ const translations = {
     slide2_chart_title: "El Efecto Tijera",
     slide2_chart_label_1: "Ventas sin Ecosistema (Regulación)",
     slide2_chart_label_2: "Ingresos por Base Propia y Postventa",
-    slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulación)', 'Q6', 'Q7', 'Q8']
+    slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulación)', 'Q6', 'Q7', 'Q8'],
+    slide2_watermark: "03"
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
@@ -57,7 +58,8 @@ const translations = {
     slide2_chart_title: "The Scissors Effect",
     slide2_chart_label_1: "Sales without Ecosystem (Regulation)",
     slide2_chart_label_2: "Proprietary DB & Post-sales Income",
-    slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulation)', 'Q6', 'Q7', 'Q8']
+    slide2_chart_x_labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5 (Regulation)', 'Q6', 'Q7', 'Q8'],
+    slide2_watermark: "03"
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
@@ -87,6 +89,7 @@ const translations = {
     slide2_chart_title: "剪刀差效应",
     slide2_chart_label_1: "无生态系统销售 (监管影响)",
     slide2_chart_label_2: "自有数据库和售后收入",
-    slide2_chart_x_labels: ['第一季度', '第二季度', '第三季度', '第四季度', '第五季度 (监管开始)', '第六季度', '第七季度', '第八季度']
+    slide2_chart_x_labels: ['第一季度', '第二季度', '第三季度', '第四季度', '第五季度 (监管开始)', '第六季度', '第七季度', '第八季度'],
+    slide2_watermark: "〇三"
   }
 };

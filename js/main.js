@@ -134,6 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
     initScissorsChart();
     updateChartLanguage(lang);
   }, 500);
+
+  // Trigger chart animation every time the slide is shown
+  Reveal.on('slidechanged', event => {
+    // If the slide contains the scissors chart, animate it
+    if (event.currentSlide.querySelector('#scissorsChart')) {
+      if (scissorsChart) {
+        // Reset and redraw chart to replay the drawing animation
+        scissorsChart.reset();
+        scissorsChart.update();
+      }
+    }
+  });
 });
 
 // --- CHART LOGIC ---
