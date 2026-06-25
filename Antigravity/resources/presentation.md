@@ -56,17 +56,17 @@
 
 ---
 
-## Diapositiva 6: Hacia Adentro - Business Intelligence (Control Directivo Total)
+## Diapositiva 6: Hacia Adentro - BI Predictivo y Copiloto Estratégico (Control Directivo Total)
 
-* **Mensaje Principal:** Ustedes ven la rentabilidad de Jalisco al segundo, con datos milimétricos.
-* **Visuales:** Tableros directivos (Dashboards) generados desde el ERP.
+* **Mensaje Principal:** No solo medimos lo que ya pasó; la Inteligencia Artificial proyecta el futuro financiero para evitar pérdidas antes de que ocurran.
+* **Visuales:** Tableros directivos (Dashboards) interactivos, destacando un panel lateral brillante con "Alertas de IA" y "Proyecciones a 30 días".
 * **Detalle de KPIs a mostrar:**
-    * CAC (Costo de Adquisición de Cliente) vs. LTV (Valor del Cliente en el Tiempo).
-    * Rentabilidad de Taller (Costo de horas hombre vs. Margen de refacciones).
-    * Márgenes netos por categoría (Scooter vs. Bicicleta vs. Accesorios).
-* **Impacto en Rentabilidad (ROI):** Agilidad en la toma de decisiones. Detección inmediata de fugas de capital y reasignación de presupuestos a los productos más rentables.
+    * **Métricas en Tiempo Real:** CAC (Costo de Adquisición) vs. LTV (Valor del Cliente) y márgenes netos por categoría (Scooter vs. Bicicleta vs. Accesorios).
+    * **Análisis Predictivo:** Rentabilidad proyectada del taller basada en historial, tiempos de reparación y estacionalidad.
+    * **Detección de Anomalías:** Alertas automáticas 24/7 de la IA ante desviaciones atípicas, caídas de margen o posibles fugas de capital.
+* **Impacto en Rentabilidad (ROI):** Transición de una gestión reactiva a una proactiva. Mitigación de riesgos financieros mediante la intervención temprana y optimización instantánea de presupuestos guiada por el "Copiloto" de IA.
 * **Guion del orador:** 
-> "Un negocio escalable requiere visibilidad total. Hemos consolidado todos los datos en Dashboards de análisis avanzado. Desde la sede central, ustedes pueden evaluar al centavo la rentabilidad de Jalisco: qué márgenes deja el taller, qué modelo rota más rápido y cuál es nuestro retorno de inversión por campaña. Dejamos de operar con intuición para operar con precisión matemática."
+> "Un negocio escalable no puede manejarse viendo por el espejo retrovisor. Hemos consolidado nuestros datos en Dashboards de análisis avanzado, pero les hemos añadido una capa de Inteligencia Artificial. Desde la sede central, ustedes no solo evalúan al centavo la rentabilidad actual de Jalisco; la IA actúa como su copiloto estratégico. Analiza las tendencias en tiempo real y predice nuestro desempeño del próximo trimestre. Si el sistema detecta una fuga de capital en el taller o una caída inusual en la rotación, lanza una alerta antes de cerrar el mes. Dejamos de operar con intuición para operar con precisión matemática y predictiva."
 
 ---
 
