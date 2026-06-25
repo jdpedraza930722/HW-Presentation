@@ -2,6 +2,7 @@ const translations = {
   es: {
     app_title: "Proyecto Nexus: El Ecosistema Jalisco",
     slide_title_hw: "Honey Whale Jalisco",
+    slide_date_loc: "26 JUNIO 2026 | CIUDAD DE MÉXICO",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
     presenter1_title: "Especialista en Inteligencia Artificial",
     presenter2_name: "M.Sc. Juan Daniel Pedraza Díaz",
@@ -17,6 +18,7 @@ const translations = {
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
     slide_title_hw: "Honey Whale Jalisco",
+    slide_date_loc: "JUNE 26, 2026 | MEXICO CITY",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
     presenter1_title: "Artificial Intelligence Specialist",
     presenter2_name: "M.Sc. Juan Daniel Pedraza Díaz",
@@ -32,6 +34,7 @@ const translations = {
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
     slide_title_hw: "Honey Whale 哈利斯科 (Jalisco)",
+    slide_date_loc: "2026年6月26日 | 墨西哥城",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
     presenter1_title: "人工智能专家 (AI Specialist)",
     presenter2_name: "M.Sc. Juan Daniel Pedraza Díaz",
