@@ -30,6 +30,21 @@ body.video-slide .reveal .slide-background {
   cursor: pointer !important;
 }
 
+/* QR Code Display for Master on Desktop */
+.desktop-master-qr {
+  display: none;
+  height: 33vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  border: 1px solid rgba(253, 203, 9, 0.3);
+}
+
+@media (min-width: 768px) {
+  body.is-master .desktop-master-qr {
+    display: block;
+  }
+}
+
 .play-icon-overlay {
   position: absolute;
   top: 50%;
