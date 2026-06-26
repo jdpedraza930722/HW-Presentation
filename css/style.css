@@ -2813,31 +2813,34 @@ h6 {
   /* Funnel UI Mobile */
   .funnel-container {
     flex-direction: column !important;
-    padding: 1rem 0.5rem !important;
+    padding: 0.5rem !important;
     gap: 0.2rem !important;
     margin-top: 0.5rem !important;
+    box-sizing: border-box !important;
+    align-items: center !important;
   }
 
   .funnel-node {
     gap: 0.2rem !important;
-    font-size: 0.65rem !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
   }
 
   .funnel-node svg {
-    width: 28px !important;
-    height: 28px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
 
   .funnel-arrow {
     flex: none !important;
-    width: 2px !important;
-    height: 40px !important;
+    width: 3px !important;
+    height: 25px !important;
     margin: 0.2rem 0 !important;
     background: rgba(255, 255, 255, 0.2) !important;
   }
 
   .funnel-arrow .pulse-line {
-    width: 6px !important;
+    width: 7px !important;
     height: 15px !important;
     top: 0 !important;
     left: -2px !important;
