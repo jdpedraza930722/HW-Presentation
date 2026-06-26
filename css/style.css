@@ -30,6 +30,37 @@ body.video-slide .reveal .slide-background {
   cursor: pointer !important;
 }
 
+.play-icon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: rgba(17, 17, 17, 0.7);
+  border: 2px solid var(--brand-yellow);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--brand-yellow);
+  box-shadow: 0 0 20px rgba(253, 203, 9, 0.4);
+  animation: pulse-play 2s infinite;
+  pointer-events: none;
+  z-index: 100;
+}
+.play-icon-overlay svg {
+  width: 60px;
+  height: 60px;
+  margin-left: 8px; /* Offset to visually center the play triangle */
+}
+
+@keyframes pulse-play {
+  0% { box-shadow: 0 0 0 0 rgba(253, 203, 9, 0.7); }
+  70% { box-shadow: 0 0 0 25px rgba(253, 203, 9, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(253, 203, 9, 0); }
+}
+
 /* Logos */
 .logo-container {
   width: 110px;
