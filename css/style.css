@@ -22,6 +22,14 @@ body.is-client .reveal {
   touch-action: none !important;
 }
 
+/* Video slide interactions */
+body.video-slide .reveal {
+  cursor: pointer !important;
+}
+body.video-slide .reveal .slide-background {
+  cursor: pointer !important;
+}
+
 /* Logos */
 .logo-container {
   width: 110px;

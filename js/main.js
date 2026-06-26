@@ -389,3 +389,15 @@ window.playFullscreenVideo = function(videoUrl) {
     }
   });
 };
+
+// Global click listener to trigger videos dynamically
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.controls') || e.target.closest('.floating-lang-switcher')) return;
+
+  if (typeof Reveal !== 'undefined') {
+    const currentSlide = Reveal.getCurrentSlide();
+    if (currentSlide && currentSlide.getAttribute('data-video-url')) {
+      window.playFullscreenVideo(currentSlide.getAttribute('data-video-url'));
+    }
+  }
+});
