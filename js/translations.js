@@ -1,7 +1,8 @@
 const translations = {
   es: {
     app_title: "Proyecto Nexus: El Ecosistema Jalisco",
-    slide_title_hw: "Honey Whale Jalisco",
+    slide_title_hw: "Honey Whale",
+    slide_subtitle_hw: "Movilidad Eléctrica Jalisco",
     slide_date_loc: "26 JUNIO 2026 | CIUDAD DE MÉXICO",
     presenters_label: "DTO IA",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
@@ -100,7 +101,8 @@ const translations = {
   },
   en: {
     app_title: "Project Nexus: The Jalisco Ecosystem",
-    slide_title_hw: "Honey Whale Jalisco",
+    slide_title_hw: "Honey Whale",
+    slide_subtitle_hw: "Electric Mobility Jalisco",
     slide_date_loc: "JUNE 26, 2026 | MEXICO CITY",
     presenters_label: "AI DEPT",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
@@ -199,7 +201,8 @@ const translations = {
   },
   zh: {
     app_title: "Nexus 项目：哈利斯科州生态系统",
-    slide_title_hw: "Honey Whale 哈利斯科 (Jalisco)",
+    slide_title_hw: "Honey Whale",
+    slide_subtitle_hw: "哈利斯科州电动出行 (Electric Mobility Jalisco)",
     slide_date_loc: "2026年6月26日 | 墨西哥城",
     presenters_label: "AI 部门",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
