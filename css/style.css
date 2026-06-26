@@ -2847,25 +2847,29 @@ h6 {
   /* Triage Mobile */
   .triage-diagram {
     flex-direction: column !important;
-    padding: 0.5rem !important;
-    gap: 0.5rem !important;
-    margin-top: 0.2rem !important;
+    align-items: center !important;
+    padding: 1rem !important;
+    gap: 1.5rem !important;
+    margin-top: 1rem !important;
+    box-sizing: border-box !important;
   }
 
   .triage-input {
-    gap: 0.2rem !important;
+    gap: 0.5rem !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
   }
 
   .triage-input svg {
-    width: 30px !important;
-    height: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
   }
 
   .triage-bidir {
     flex-direction: row !important;
-    width: 30px !important;
-    height: 30px !important;
-    gap: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    gap: 15px !important;
   }
 
   .flow-forward,
@@ -2892,17 +2896,22 @@ h6 {
   }
 
   .triage-ai {
-    gap: 0.2rem !important;
+    gap: 0.5rem !important;
   }
 
   .triage-ai-core svg {
-    width: 35px !important;
-    height: 35px !important;
+    width: 55px !important;
+    height: 55px !important;
+  }
+
+  .triage-ai-core span {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
   }
 
   .triage-timer {
-    margin-top: -6px !important;
-    transform: scale(0.65) !important;
+    margin-top: -2px !important;
+    transform: scale(0.75) !important;
   }
 
   .chat-bubble {
@@ -2910,18 +2919,18 @@ h6 {
   }
 
   .triage-fork-bidir {
-    margin-top: 25px !important;
-    width: 180px !important;
-    height: 10px !important;
-    border-width: 2px !important;
+    margin-top: 35px !important;
+    width: 280px !important;
+    height: 15px !important;
+    border-width: 3px !important;
     border-bottom: none !important;
-    border-top: 2px solid #A855F7 !important;
+    border-top: 3px solid #A855F7 !important;
   }
 
   .triage-fork-bidir::before {
-    top: -25px !important;
-    height: 25px !important;
-    width: 2px !important;
+    top: -35px !important;
+    height: 35px !important;
+    width: 3px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
@@ -2931,21 +2940,22 @@ h6 {
     height: auto !important;
     width: 100% !important;
     justify-content: center !important;
-    gap: 0.4rem !important;
+    gap: 1rem !important;
     margin-top: -5px !important;
   }
 
   .branch {
     flex-direction: column !important;
-    padding: 0.3rem !important;
-    font-size: 0.5rem !important;
+    padding: 0.6rem !important;
+    font-size: 0.85rem !important;
     text-align: center !important;
-    width: 50px !important;
+    width: 80px !important;
+    gap: 0.4rem !important;
   }
 
   .branch svg {
-    width: 16px !important;
-    height: 16px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
 
   .return-dot.top {
