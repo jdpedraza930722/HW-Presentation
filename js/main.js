@@ -344,3 +344,48 @@ document.addEventListener('visibilitychange', () => {
     requestWakeLock();
   }
 });
+
+// Reproducir video a pantalla completa
+window.playFullscreenVideo = function(videoUrl) {
+  const video = document.createElement('video');
+  video.src = videoUrl;
+  video.controls = true;
+  video.style.position = 'fixed';
+  video.style.top = '0';
+  video.style.left = '0';
+  video.style.width = '100vw';
+  video.style.height = '100vh';
+  video.style.backgroundColor = 'black';
+  video.style.zIndex = '9999';
+  
+  document.body.appendChild(video);
+  
+  video.play().catch(e => console.error("Error reproduciendo el video:", e));
+  
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) {
+    video.msRequestFullscreen();
+  }
+  
+  const removeVideo = () => {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if(video.parentNode) {
+            video.parentNode.removeChild(video);
+        }
+    }
+  };
+  
+  video.addEventListener('fullscreenchange', removeVideo);
+  video.addEventListener('webkitfullscreenchange', removeVideo);
+  video.addEventListener('ended', () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(()=>{});
+    }
+    if(video.parentNode) {
+      video.parentNode.removeChild(video);
+    }
+  });
+};
