@@ -4,7 +4,7 @@ const translations = {
     slide_title_hw: "Honey Whale",
     slide_subtitle_hw: "Movilidad Eléctrica Jalisco",
     slide_date_loc: "26 JUNIO 2026 | CIUDAD DE MÉXICO",
-    presenters_label: "DTO IA",
+    presenters_label: "DPTO IA",
     presenter1_name: "M.Sc. Luis Alberto Vázquez Serrano",
     presenter1_title: "Especialista en Inteligencia Artificial",
     presenter2_name: "M.Sc. Juan Daniel Pedraza Díaz",
